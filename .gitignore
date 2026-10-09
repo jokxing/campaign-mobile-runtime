@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+
+# Nuxt generated files and build output
+.nuxt/
+.output/
+.data/
+.cache/
+dist/
+coverage/
+
+# Local environment configuration; keep the documented template
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+
+# Local editor and operating system files
+.idea/
+.DS_Store
+Thumbs.db

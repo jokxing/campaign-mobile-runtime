@@ -1,0 +1,25 @@
+{
+  "name": "mobile-experience-runtime",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --import ./tests/register-typescript.mjs --test tests/*.test.mjs",
+    "test:mock": "node --test tests/mock.integration.mjs",
+    "check:api": "node scripts/check-api-boundaries.mjs",
+    "dev": "nuxt dev --host 0.0.0.0 --port 4180",
+    "build": "nuxt build",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview --host 0.0.0.0 --port 4180",
+    "typecheck": "nuxt typecheck",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "nuxt": "^4.4.8",
+    "vant": "^4.10.0"
+  },
+  "devDependencies": {
+    "typescript": "^6.0.3",
+    "vue-tsc": "^3.3.6"
+  }
+}

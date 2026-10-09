@@ -1,0 +1,621 @@
+/* Application color source. Business colors arrive through --home-brand / --accent. */
+:root {
+  color-scheme: light;
+  --app-primary: #2563eb;
+  --app-success: #16a34a;
+  --app-warning: #d97706;
+  --app-danger: #dc2626;
+  --app-canvas: #e9edf1;
+  --app-page: #f3f5f7;
+  --app-surface: #ffffff;
+  --app-surface-muted: #f7f8fa;
+  --app-text: #1f2933;
+  --app-text-secondary: #697581;
+  --app-text-muted: #87919c;
+  --app-border: #e4e8ec;
+  --app-active: #f2f3f5;
+  --app-nav-inactive: #8a95a3;
+  --app-progress-track: #ebedf0;
+  --app-white: #ffffff;
+  --app-hero-tag: rgba(255, 255, 255, 0.18);
+}
+:root[data-app-theme='dark'] {
+  color-scheme: dark;
+  --app-primary: #4f83ff;
+  --app-canvas: #0d0f10;
+  --app-page: #121416;
+  --app-surface: #1a1d1f;
+  --app-surface-muted: #202427;
+  --app-text: #f0f2f4;
+  --app-text-secondary: #aab2ba;
+  --app-text-muted: #8e98a2;
+  --app-border: #303539;
+  --app-active: #25292c;
+  --app-nav-inactive: #9aa5af;
+  --app-progress-track: #343a3f;
+}
+
+/* Component colors and decorative palettes; layout stays in main.css. */
+:root {
+  color: var(--app-text);
+  background: var(--app-canvas);
+}
+body {
+  background: var(--app-canvas);
+}
+a {
+  color: inherit;
+}
+.mobile-page {
+  background: var(--app-page);
+  color: var(--app-text);
+}
+.van-nav-bar {
+  border-bottom: 1px solid #edf0f2;
+  background: rgba(255, 255, 255, 0.98);
+}
+.van-nav-bar__title {
+  color: var(--app-text);
+}
+.brand-mark {
+  background: #1f2933;
+  color: #fff;
+}
+.theme-toggle {
+  border: 1px solid var(--app-border);
+  background: var(--app-surface-muted);
+  color: #52606d;
+}
+.theme-swatch {
+  border: 1px solid #7b8792;
+  background: linear-gradient(90deg, #ffffff 50%, #202427 50%);
+}
+.theme-toggle:active {
+  background: rgba(128, 128, 128, 0.12);
+}
+.app-tabbar {
+  border-top: 1px solid #e3e7eb;
+  background: var(--app-surface);
+  box-shadow: 0 -6px 20px rgba(31, 41, 51, 0.08);
+}
+.app-tabbar::after {
+  border-top-color: #e3e7eb;
+}
+
+.home-hero,
+.campaign-hero,
+.detail-hero {
+  --accent: var(--app-primary);
+  background: var(--home-brand, var(--accent));
+  color: #fff;
+}
+.home-hero .van-button {
+  color: #1f2933 !important;
+}
+.home-hero .van-button__text {
+  color: #1f2933;
+}
+.home-notice {
+  border: 1px solid var(--app-border);
+}
+.home-section,
+.campaign-list,
+.runtime-section,
+.rule-card {
+  background: var(--app-surface);
+}
+.section-heading span {
+  color: #8a95a0;
+}
+.section-heading h2 {
+  color: var(--app-text);
+}
+.section-heading small {
+  color: var(--app-text-muted);
+}
+.home-quick-grid .van-grid-item__content {
+  background: transparent;
+}
+.home-quick-grid .van-grid-item__icon {
+  background: color-mix(in srgb, var(--home-brand, var(--app-primary)) 10%, #fff);
+  color: var(--home-brand, var(--app-primary));
+}
+.home-quick-grid .van-grid-item__text {
+  color: #4f5b66;
+}
+.home-content-grid article {
+  background: #334155;
+  color: #fff;
+}
+.home-content-grid .tone-1 {
+  background: #0f766e;
+}
+.home-content-grid .tone-2 {
+  background: #b45309;
+}
+.home-content-grid .tone-3 {
+  background: #7c3aed;
+}
+.home-benefits {
+  border: 1px solid #e8ebee;
+}
+.home-benefits .van-cell__left-icon {
+  color: var(--home-brand, var(--app-primary));
+}
+
+.campaign-hero {
+  --accent: var(--app-primary);
+  background: var(--accent);
+}
+.campaign-hero > a {
+  background: #fff;
+  color: #1f2933;
+}
+.category-tabs .van-tabs__wrap {
+  border-bottom: 1px solid #edf0f2;
+  background: var(--app-surface);
+}
+.category-tabs .van-tab {
+  color: var(--app-text-secondary);
+}
+.category-tabs .van-tab--active {
+  color: var(--app-text);
+}
+.campaign-card {
+  border-top: 1px solid #edf0f2;
+}
+.card-accent {
+  color: #fff;
+}
+.card-copy p {
+  color: var(--app-text-secondary);
+}
+.card-copy small {
+  color: #929ba4;
+}
+.card-arrow {
+  color: #a2abb4;
+}
+.card-lock {
+  color: var(--app-warning);
+}
+.empty-state {
+  color: #8a949e;
+}
+.detail-empty {
+  background: var(--app-surface);
+}
+.detail-empty a {
+  color: var(--app-primary);
+}
+
+.detail-hero {
+  background: var(--accent);
+}
+.progress-card {
+  border: 1px solid #e2e6ea;
+  background: var(--app-surface);
+}
+.progress-card strong {
+  color: var(--app-text);
+}
+.progress-card small {
+  color: #7d8791;
+}
+.eligibility-card {
+  border: 1px solid #f0c887;
+  background: #fff8eb;
+  color: #a45b08;
+}
+.eligibility-card.eligible {
+  border-color: #9bd7bc;
+  background: #effaf4;
+  color: #167849;
+}
+.eligibility-card p {
+  color: #7c6646;
+}
+.eligibility-card.eligible p {
+  color: #527764;
+}
+.task-stack {
+  border: 1px solid #e7eaed;
+}
+.task-number {
+  background: #eef2f6;
+  color: #7b8792;
+}
+.task-number.done {
+  background: #dcfce7;
+  color: var(--app-success);
+}
+.checkin-grid .van-grid-item__content {
+  background: transparent;
+}
+.checkin-day {
+  border: 1px solid #e4e8eb;
+  color: #89949e;
+}
+.checkin-day.done {
+  border-color: #86d6bd;
+  background: #ecfdf5;
+  color: #0f766e;
+}
+.milestone-journey {
+  border: 1px solid #e7eaed;
+  background: #fbfcfd;
+}
+.milestone-step {
+  color: #98a3ae;
+}
+.milestone-step:not(:last-child)::after {
+  background: #d8dee5;
+}
+.milestone-step.reached:not(:last-child)::after {
+  background: #b45d20;
+}
+.milestone-node {
+  border: 3px solid #fbfcfd;
+  background: #cbd3db;
+  box-shadow: 0 0 0 1px #cbd3db;
+  color: #fff;
+}
+.milestone-step.reached .milestone-node {
+  background: #b45d20;
+  box-shadow: 0 0 0 1px #b45d20;
+}
+.milestone-step.current .milestone-node {
+  background: #b45d20;
+  box-shadow: 0 0 0 3px #f6e8de;
+}
+.milestone-step strong {
+  color: #8a95a0;
+}
+.milestone-step.reached strong {
+  color: #a64f18;
+}
+.benefit-ticket {
+  border: 1px solid #ddd6fe;
+  border-left: 4px solid var(--benefit-accent);
+  background: #faf5ff;
+}
+.benefit-ticket > span {
+  color: var(--benefit-accent);
+}
+.benefit-ticket p {
+  color: #756d80;
+}
+.rule-card .van-cell-group {
+  border: 1px solid #e7eaed;
+}
+.rule-index {
+  background: #eef2f6;
+  color: #65717d;
+}
+.rule-card > div:last-child {
+  background: #f2f4f6;
+}
+
+.member-summary {
+  background: #1f2933;
+  color: #fff;
+}
+.member-summary > .van-icon {
+  color: #f4c86a;
+}
+.member-summary p {
+  color: #b8c0c8;
+}
+.member-summary small {
+  color: #aab3bc;
+}
+.member-actions .van-grid-item__content {
+  background: transparent;
+}
+.member-actions .van-grid-item__icon {
+  color: var(--app-primary);
+}
+.member-actions .van-grid-item__text {
+  color: #65717c;
+}
+.member-list {
+  border: 1px solid #e7eaed;
+}
+.member-list .van-cell__left-icon {
+  color: #667582;
+}
+@media (min-width: 700px) {
+  .mobile-page {
+    box-shadow: 0 0 38px rgba(31, 41, 51, 0.12);
+  }
+}
+
+.van-theme-dark {
+  --van-background-2: var(--app-surface);
+  --van-background-3: #202427;
+  --van-text-color-2: #c6ccd2;
+  --van-text-color-3: #8e98a2;
+}
+.van-theme-dark .mobile-page {
+  background: var(--app-page) !important;
+  color: var(--app-text);
+}
+.van-theme-dark .van-nav-bar {
+  border-bottom-color: var(--app-border);
+  background: rgba(26, 29, 31, 0.98);
+}
+.van-theme-dark .van-nav-bar__title {
+  color: var(--app-text);
+}
+.van-theme-dark .brand-mark {
+  background: var(--app-text);
+  color: #151719;
+}
+.van-theme-dark .theme-toggle {
+  border-color: #3a4045;
+  background: #25292c;
+  color: #c6ccd2;
+}
+.van-theme-dark .app-tabbar {
+  border-top-color: var(--app-border);
+  background: var(--app-surface);
+  box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.24);
+}
+.van-theme-dark .app-tabbar::after {
+  border-top-color: var(--app-border);
+}
+.van-theme-dark .home-section,
+.van-theme-dark .campaign-list,
+.van-theme-dark .runtime-section,
+.van-theme-dark .rule-card {
+  background: var(--app-surface);
+}
+.van-theme-dark .section-heading h2,
+.van-theme-dark .card-copy h3,
+.van-theme-dark .rule-card h2,
+.van-theme-dark .progress-card strong,
+.van-theme-dark .benefit-ticket h2 {
+  color: var(--app-text);
+}
+.van-theme-dark .section-heading span,
+.van-theme-dark .section-heading small,
+.van-theme-dark .card-copy p,
+.van-theme-dark .card-copy small,
+.van-theme-dark .progress-card small {
+  color: var(--app-text-secondary);
+}
+.van-theme-dark .home-notice {
+  border-color: var(--app-border);
+  background: var(--app-surface) !important;
+  color: var(--app-text-secondary) !important;
+}
+.van-theme-dark .home-quick-grid .van-grid-item__icon {
+  background: color-mix(in srgb, var(--home-brand, var(--app-primary)) 22%, var(--app-surface));
+}
+.van-theme-dark .home-quick-grid .van-grid-item__text {
+  color: #c4cbd1;
+}
+.van-theme-dark .home-benefits,
+.van-theme-dark .member-list,
+.van-theme-dark .task-stack,
+.van-theme-dark .rule-card .van-cell-group {
+  border-color: var(--app-border);
+}
+.van-theme-dark .category-tabs .van-tabs__wrap {
+  border-bottom-color: var(--app-border);
+  background: var(--app-surface);
+}
+.van-theme-dark .category-tabs .van-tab {
+  color: var(--app-text-secondary) !important;
+}
+.van-theme-dark .category-tabs .van-tab--active {
+  color: var(--app-text) !important;
+}
+.van-theme-dark .category-tabs .van-tabs__line {
+  background: var(--app-primary);
+}
+.van-theme-dark .campaign-card {
+  border-top-color: var(--app-border);
+}
+.van-theme-dark .campaign-card .van-tag--plain {
+  border-color: #4f83df;
+  background: color-mix(in srgb, var(--app-primary) 12%, transparent);
+  color: #86adff;
+}
+.van-theme-dark .campaign-card .van-tag--success {
+  background: #1f7a48;
+  color: #ffffff;
+}
+.van-theme-dark .campaign-card .van-tag--warning {
+  background: #a85826;
+  color: #ffffff;
+}
+.van-theme-dark .detail-empty,
+.van-theme-dark .progress-card {
+  border-color: var(--app-border);
+  background: var(--app-surface);
+}
+.van-theme-dark .eligibility-card {
+  border-color: #745326;
+  background: #2d251a;
+  color: #f0ad59;
+}
+.van-theme-dark .eligibility-card p {
+  color: #c7ae8a;
+}
+.van-theme-dark .eligibility-card.eligible {
+  border-color: #2d7053;
+  background: #172c23;
+  color: #64dca2;
+}
+.van-theme-dark .eligibility-card.eligible p {
+  color: #9ec8b3;
+}
+.van-theme-dark .task-number,
+.van-theme-dark .rule-index {
+  background: #2a2f33;
+  color: #b8c0c7;
+}
+.van-theme-dark .task-number.done {
+  background: #153d2d;
+  color: #5ee0a4;
+}
+.van-theme-dark .van-cell__title {
+  color: var(--app-text);
+}
+.van-theme-dark .van-cell__label {
+  color: var(--app-text-secondary);
+}
+.van-theme-dark .van-cell::after {
+  border-bottom-color: #30363b;
+}
+.van-theme-dark .checkin-day {
+  border-color: var(--app-border);
+  background: #202427;
+  color: #9ca6af;
+}
+.van-theme-dark .checkin-day.done {
+  border-color: #267358;
+  background: #14382b;
+  color: #6be3ad;
+}
+.van-theme-dark .milestone-journey {
+  border-color: var(--app-border);
+  background: #202427;
+}
+.van-theme-dark .milestone-step:not(:last-child)::after {
+  background: #42494f;
+}
+.van-theme-dark .milestone-step.reached:not(:last-child)::after {
+  background: #dc7a38;
+}
+.van-theme-dark .milestone-node {
+  border-color: #202427;
+  background: #59636c;
+  box-shadow: 0 0 0 1px #59636c;
+}
+.van-theme-dark .milestone-step.reached .milestone-node,
+.van-theme-dark .milestone-step.current .milestone-node {
+  background: #dc7a38;
+  box-shadow: 0 0 0 1px #dc7a38;
+}
+.van-theme-dark .milestone-step.current .milestone-node {
+  box-shadow: 0 0 0 3px rgba(220, 122, 56, 0.25);
+}
+.van-theme-dark .milestone-step strong {
+  color: #9ca6af;
+}
+.van-theme-dark .milestone-step.reached strong {
+  color: #f0a56f;
+}
+.van-theme-dark .benefit-ticket {
+  border-color: #54456f;
+  border-left-color: var(--benefit-accent);
+  background: #251f2e;
+}
+.van-theme-dark .benefit-ticket p {
+  color: #bdb2ca;
+}
+.van-theme-dark .rule-card > div:last-child {
+  background: #25292c;
+  color: #cbd2d8;
+}
+.van-theme-dark .member-summary {
+  background: #202326;
+  box-shadow: inset 0 0 0 1px #34393d;
+}
+.van-theme-dark .member-actions .van-grid-item__text {
+  color: #b8c0c7;
+}
+@media (min-width: 700px) {
+  .van-theme-dark .mobile-page {
+    box-shadow: 0 0 42px rgba(0, 0, 0, 0.42);
+  }
+}
+
+.message-intro {
+  background: var(--app-surface);
+}
+.message-intro span {
+  color: var(--app-primary);
+}
+.message-intro p {
+  color: var(--app-text-secondary);
+}
+.conversation-section {
+  background: var(--app-surface);
+}
+.conversation-row {
+  border-top: 1px solid var(--app-border);
+}
+.conversation-avatar {
+  background: #e8efff;
+  color: var(--app-primary);
+}
+.conversation-avatar .van-icon {
+  background: transparent;
+}
+.conversation-avatar .presence-dot {
+  border: 2px solid var(--app-surface);
+  background: var(--app-success);
+}
+.conversation-copy time,
+.support-message time {
+  color: var(--app-text-secondary);
+}
+.conversation-copy p {
+  color: var(--app-text-secondary);
+}
+.support-status-bar {
+  border-bottom: 1px solid var(--app-border);
+  background: var(--app-surface);
+}
+.support-status-bar > span {
+  background: #f59e0b;
+}
+.support-status-bar > span.is-active {
+  background: var(--app-success);
+}
+.support-status-bar > span.is-closed {
+  background: #94a3b8;
+}
+.support-status-bar p {
+  color: var(--app-text-secondary);
+}
+.support-message p {
+  border: 1px solid var(--app-border);
+  background: var(--app-surface);
+}
+.support-message.is-customer p {
+  border-color: var(--app-primary);
+  background: var(--app-primary);
+  color: #fff;
+}
+.support-message.is-system p {
+  background: transparent;
+  color: var(--app-text-secondary);
+}
+.message-sender {
+  color: var(--app-text-secondary);
+}
+.support-composer {
+  border-top: 1px solid var(--app-border);
+  background: var(--app-surface);
+}
+.support-composer textarea {
+  border: 1px solid var(--app-border);
+  background: var(--app-surface-muted);
+  color: var(--app-text);
+}
+.support-composer textarea:focus {
+  border-color: var(--app-primary);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--app-primary) 10%, transparent);
+}
+.support-composer textarea::placeholder {
+  color: #9aa5af;
+}
+.support-composer > p {
+  color: var(--app-text-secondary);
+}
+
+.request-feedback { border: 1px solid var(--van-border-color); color: var(--van-text-color); background: var(--van-background-2); }
