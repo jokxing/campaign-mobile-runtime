@@ -12,6 +12,8 @@
 
 ## 联调协议
 
+除配置预览外，后台客服服务台还直接请求本项目 origin 的 /api/support，通过 HTTP 操作共享内存会话，SSE 通知刷新。后台读取 VITE_MOBILE_RUNTIME_URL 的 origin，预览路径 /home 不作为 API 前缀。与后台“实时待办”本地事件页无关，也不构成生产用户隔离。详见[客服关联](project-guide.md#后台服务台与本服务的关联)。
+
 | 场景 | channel | 更新类型 |
 | --- | --- | --- |
 | 首页配置 | `mobile-home-composer` | `SCHEMA_UPDATE` |
