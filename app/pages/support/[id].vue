@@ -76,10 +76,10 @@ watch(() => route.params.id, () => {
   sendStatus.value = '';
   void loadConversation();
 });
-onMounted(() => connect(handleRealtime));
+onMounted(() => connect(handleRealtime, loadConversation));
 onBeforeUnmount(() => {
   loadSequence++;
-  removeListener(handleRealtime);
+  removeListener(handleRealtime, loadConversation);
 });
 </script>
 

@@ -7,7 +7,9 @@ import { createRefreshTask } from '~/utils/refresh-task';
 const refreshTasks = new WeakMap<object, ReturnType<typeof createRefreshTask>>();
 
 let eventSource: EventSource | null = null;
+let listeningForOnline = false;
 const realtimeListeners = new Set<(event: SupportEvent) => void>();
+const reconnectListeners = new Set<() => void>();
 
 export function useSupportRuntime() {
   const app = useNuxtApp();
@@ -43,12 +45,30 @@ export function useSupportRuntime() {
     return initialized.value ? Promise.resolve() : runRefresh(false);
   }
 
-  function connect(onEvent?: (event: SupportEvent) => void) {
+  function connect(onEvent?: (event: SupportEvent) => void, onReconnect?: () => void) {
     if (onEvent) realtimeListeners.add(onEvent);
-    if (!import.meta.client || eventSource) return;
+    if (onReconnect) reconnectListeners.add(onReconnect);
+    if (!import.meta.client) return;
+    // Browsers can resume with a stale OPEN stream after going offline.
+    // Recreate it and fetch snapshots immediately when the network returns.
+    if (!listeningForOnline) {
+      listeningForOnline = true;
+      window.addEventListener('online', () => {
+        eventSource?.close();
+        eventSource = null;
+        connected.value = false;
+        void refreshConversations();
+        reconnectListeners.forEach(listener => listener());
+        connect();
+      });
+    }
+    if (eventSource && eventSource.readyState !== EventSource.CLOSED) return;
     eventSource = createSupportEventSource();
     eventSource.onopen = () => {
       connected.value = true;
+      // SSE has no event replay: always reconcile snapshots after (re)connecting.
+      void refreshConversations();
+      reconnectListeners.forEach(listener => listener());
     };
     eventSource.onmessage = message => {
       let event: SupportEvent;
@@ -68,8 +88,9 @@ export function useSupportRuntime() {
     };
   }
 
-  function removeListener(listener: (event: SupportEvent) => void) {
+  function removeListener(listener: (event: SupportEvent) => void, onReconnect?: () => void) {
     realtimeListeners.delete(listener);
+    if (onReconnect) reconnectListeners.delete(onReconnect);
   }
 
   return { conversations, connected, errorMessage, unread, initSupportRuntime, refreshConversations, connect, removeListener };
