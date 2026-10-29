@@ -38,7 +38,7 @@ npm run dev
 - [接口契约](api-contract.md)：HTTP/SSE、配置协议及 Mock 场景。
 - [运行时来源与配置校验](../shared/contracts/preview.ts)：预览接收约束。
 - [首页模型](../shared/home.ts)、[活动模型](../shared/campaign.ts)：版本化配置。
-- [协作与演示路线](collaboration-and-demo.md)：异常体验、文字沟通与验收说明。
+- [协作与演示路线](collaboration-and-demo.md)：异常体验、接口协作与验收说明。
 
 后台的配置发布保存到其浏览器存储，跨端预览不代表线上部署、服务端持久化或共用账号系统。本项目的 SSE 来自 Nuxt 本地客服 Mock，与后台实时待办页的事件模拟分别实现。真实服务仍需身份、权限、持久化及事件补偿设计。
 
